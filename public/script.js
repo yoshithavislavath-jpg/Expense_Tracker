@@ -86,8 +86,12 @@ function renderExpenses() {
       </p>
 
       <div class="card-actions">
-        <button class="edit-btn" onclick="editExpense('${expense._id}')">Edit</button>
-        <button class="delete-btn" onclick="deleteExpense('${expense._id}')">Delete</button>
+        <button class="icon-btn edit-btn" onclick="editExpense('${expense._id}')">
+            ✎ Edit
+        </button>
+        <button class="icon-btn delete-btn" onclick="deleteExpense('${expense._id}')">
+            🗑 Delete
+        </button>
       </div>
     `;
 

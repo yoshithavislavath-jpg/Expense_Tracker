@@ -4,9 +4,20 @@
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f5f7fb;
-  color: #1f2937;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: radial-gradient(
+      circle at top left,
+      rgba(102, 217, 239, 0.08),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(253, 151, 31, 0.08),
+      transparent 40%
+    ),
+    #1e1f1c;
+
+  color: #f8f8f2;
 }
 
 .page {
@@ -16,21 +27,24 @@ body {
 }
 
 .hero {
-  background: linear-gradient(135deg, #1d4ed8, #2563eb);
-  color: white;
+  background: linear-gradient(135deg, #272822, #1e1f1c);
+  border: 1px solid #3e3d32;
+  color: #f8f8f2;
   padding: 28px;
   border-radius: 18px;
   margin-bottom: 24px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
 }
 
 .hero h1 {
   margin: 0 0 8px;
   font-size: 2rem;
+  color: #66d9ef;
 }
 
 .hero p {
   margin: 0;
-  opacity: 0.95;
+  color: #cfcfc2;
 }
 
 .summary-grid {
@@ -43,9 +57,10 @@ body {
 .summary-card,
 .panel,
 .expense-card {
-  background: white;
+  background: #272822;
+  border: 1px solid #3e3d32;
   border-radius: 16px;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
 }
 
 .summary-card {
@@ -55,14 +70,14 @@ body {
 .summary-card h3 {
   margin: 0 0 10px;
   font-size: 1rem;
-  color: #475569;
+  color: #a6e22e;
 }
 
 .summary-card p {
   margin: 0;
   font-size: 1.7rem;
   font-weight: bold;
-  color: #111827;
+  color: #f8f8f2;
 }
 
 .main-grid {
@@ -78,6 +93,7 @@ body {
 .panel h2 {
   margin-top: 0;
   margin-bottom: 16px;
+  color: #fd971f;
 }
 
 .form-grid {
@@ -91,10 +107,24 @@ textarea,
 select {
   width: 100%;
   padding: 12px;
-  border: 1px solid #dbe2ea;
+  border: 1px solid #49483e;
   border-radius: 10px;
   font-size: 15px;
-  background: #fff;
+  background: #1e1f1c;
+  color: #f8f8f2;
+  outline: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #8f908a;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #66d9ef;
+  box-shadow: 0 0 0 3px rgba(102, 217, 239, 0.15);
 }
 
 textarea {
@@ -125,34 +155,27 @@ button {
   padding: 10px 14px;
   font-size: 14px;
   cursor: pointer;
+  transition: 0.2s ease;
 }
 
 .primary-btn {
-  background: #2563eb;
-  color: white;
+  background: #66d9ef;
+  color: #1e1f1c;
+  font-weight: 700;
+}
+
+.primary-btn:hover {
+  background: #7ee6ff;
+  transform: translateY(-1px);
 }
 
 .secondary-btn {
-  background: #e5e7eb;
-  color: #111827;
+  background: #3e3d32;
+  color: #f8f8f2;
 }
 
-.edit-btn {
-  background: #64748b; /* slate */
-  color: white;
-}
-
-.edit-btn:hover {
-  background: #475569;
-}
-
-.delete-btn {
-  background: #ef4444; /* softer red */
-  color: white;
-}
-
-.delete-btn:hover {
-  background: #dc2626;
+.secondary-btn:hover {
+  background: #4b4a3f;
 }
 
 .expense-list {
@@ -163,11 +186,12 @@ button {
 
 .expense-card {
   padding: 16px;
-  border-left: 6px solid #2563eb;
+  border-left: 6px solid #66d9ef;
 }
 
 .expense-card h3 {
   margin: 0 0 10px;
+  color: #f8f8f2;
 }
 
 .expense-meta {
@@ -175,19 +199,53 @@ button {
   grid-template-columns: 1fr 1fr;
   gap: 8px;
   margin-bottom: 10px;
-  color: #374151;
+  color: #d6d6cc;
 }
 
 .expense-description {
   margin: 10px 0 14px;
-  color: #4b5563;
+  color: #cfcfc2;
+}
+
+.card-actions {
+  margin-top: 10px;
+}
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.edit-btn {
+  background: #3e3d32;
+  color: #66d9ef;
+  border: 1px solid #4b4a3f;
+}
+
+.edit-btn:hover {
+  background: #4b4a3f;
+}
+
+.delete-btn {
+  background: #3a2323;
+  color: #ff6b6b;
+  border: 1px solid #5a3434;
+}
+
+.delete-btn:hover {
+  background: #4a2d2d;
 }
 
 .empty-state {
   text-align: center;
   padding: 24px;
-  color: #6b7280;
-  background: #f8fafc;
+  color: #8f908a;
+  background: #1e1f1c;
+  border: 1px dashed #49483e;
   border-radius: 12px;
 }
 
