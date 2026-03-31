@@ -7,20 +7,65 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>Expense Tracker</h1>
+  <div class="page">
+    <header class="hero">
+      <div>
+        <h1>Expense Tracker</h1>
+        <p>Track, manage, and review your spending in one place.</p>
+      </div>
+    </header>
 
-    <form id="expense-form">
-      <input type="text" id="title" placeholder="Title" required />
-      <input type="number" id="amount" placeholder="Amount" required />
-      <input type="text" id="category" placeholder="Category" required />
-      <input type="date" id="date" required />
-      <textarea id="description" placeholder="Description"></textarea>
-      <button type="submit">Add Expense</button>
-    </form>
+    <section class="summary-grid">
+      <div class="summary-card">
+        <h3>Total Expenses</h3>
+        <p id="total-expenses">₹0</p>
+      </div>
+      <div class="summary-card">
+        <h3>Total Entries</h3>
+        <p id="total-entries">0</p>
+      </div>
+      <div class="summary-card">
+        <h3>Highest Expense</h3>
+        <p id="highest-expense">₹0</p>
+      </div>
+    </section>
 
-    <h2>All Expenses</h2>
-    <div id="expense-list"></div>
+    <section class="main-grid">
+      <div class="panel">
+        <h2>Add / Edit Expense</h2>
+        <form id="expense-form">
+          <div class="form-grid">
+            <input type="text" id="title" placeholder="Expense title" required />
+            <input type="number" id="amount" placeholder="Amount" required />
+            <input type="text" id="category" placeholder="Category" required />
+            <input type="date" id="date" required />
+          </div>
+
+          <textarea id="description" placeholder="Description (optional)"></textarea>
+
+          <div class="form-actions">
+            <button type="submit" class="primary-btn">Save Expense</button>
+            <button type="button" id="cancel-edit" class="secondary-btn">Cancel Edit</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="panel">
+        <h2>Expenses</h2>
+
+        <div class="controls">
+          <input type="text" id="search-input" placeholder="Search expenses..." />
+          <select id="sort-select">
+            <option value="newest">Sort: Newest</option>
+            <option value="oldest">Sort: Oldest</option>
+            <option value="amount-high">Amount: High to Low</option>
+            <option value="amount-low">Amount: Low to High</option>
+          </select>
+        </div>
+
+        <div id="expense-list" class="expense-list"></div>
+      </div>
+    </section>
   </div>
 
   <script src="script.js"></script>
