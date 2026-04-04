@@ -78,22 +78,19 @@ Spendrift is a full-stack expense tracking application that enables users to rec
 
 ## Project Structure
 
-Expense_Tracker/
-│
-├── server/
-│ ├── server.js
-│ ├── routes/
-│ ├── models/
-│
-├── client/
-│ ├── index.html
-│ ├── style.css
-│ ├── script.js
-│
-├── .env
-├── .gitignore
-├── package.json
-└── README.md
+Expense_Tracker/  
+
+├── server/ (server.js, routes/, models/)  
+
+├── client/ (index.html, style.css, script.js) 
+
+├── .env  
+
+├── .gitignore 
+
+├── package.json  
+
+├── README.md
 
 --------------------------------------------------------------------------------------------------------------------
 
