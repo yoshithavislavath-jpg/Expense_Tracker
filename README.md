@@ -122,8 +122,6 @@ http://localhost:5000
 
 ## Challenges Faced
 
-## Challenges Faced
-
 ### 1. Increasing Page Length
 - Displaying all components on a single page led to excessive scrolling  
 - The interface became cluttered as more data was added  
