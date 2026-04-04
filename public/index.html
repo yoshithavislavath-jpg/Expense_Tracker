@@ -3,18 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Expense Tracker</title>
+  <title>Spendrift</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
   <div class="page">
+
+    <!-- HERO -->
     <header class="hero">
-      <div>
-        <h1>Expense Tracker</h1>
-        <p>Track, manage, and review your spending in one place.</p>
+      <div class="hero-badge">✦</div>
+      <div class="hero-doodle" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none">
+        <rect x="14" y="10" width="36" height="44" rx="6" stroke="white" stroke-width="2.4"/>
+        <circle cx="32" cy="30" r="10" stroke="white" stroke-width="2.4"/>
+        <path d="M32 20V30H40" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M26 46H38" stroke="white" stroke-width="2.4" stroke-linecap="round"/>
+        </svg>
+     </div>
+      <div class="hero-text">
+        <h1>Spendrift</h1>
+        <p>So you don’t become a spendthrift.</p>
       </div>
     </header>
 
+    <!-- SUMMARY -->
     <section class="summary-grid">
       <div class="summary-card">
         <h3>Total Expenses</h3>
@@ -30,9 +43,56 @@
       </div>
     </section>
 
-    <section class="main-grid">
-      <div class="panel">
+    <!-- TAB BAR -->
+    <section class="tab-bar">
+      <button class="tab-btn active" data-tab="overview" type="button">Insights</button>
+      <button class="tab-btn" data-tab="form" type="button">Add Expense</button>
+      <button class="tab-btn" data-tab="expenses" type="button">View / Edit Expenses</button>
+    </section>
+
+    <!-- OVERVIEW TAB -->
+    <section class="tab-content active" id="overview-tab">
+  <div class="overview-split">
+
+    <section class="panel chart-panel compact-chart-panel">
+      <div class="panel-head">
+        <h2 class="section-title">Spend Snapshot</h2>
+      </div>
+      <div class="chart-box">
+        <canvas id="expenseChart"></canvas>
+      </div>
+    </section>
+
+    <section class="panel insights-panel">
+      <h2 class="section-title">Spend Signals</h2>
+      <p class="section-subtitle">A quick overview of your monthly spending patterns.</p>
+
+      <div class="signals-grid top-signals">
+        <div class="signal-card">
+          <span class="signal-label">This Month</span>
+          <span class="signal-value" id="this-month-total">₹0</span>
+        </div>
+
+        <div class="signal-card">
+          <span class="signal-label">Top Category</span>
+          <span class="signal-value" id="top-category">—</span>
+        </div>
+      </div>
+
+      <div class="category-totals-wrap">
+        <h3 class="category-totals-title">Category Totals</h3>
+        <div id="category-totals-list" class="category-totals-list"></div>
+      </div>
+    </section>
+
+  </div>
+</section>
+
+    <!-- FORM TAB -->
+    <section class="tab-content" id="form-tab">
+      <section class="panel form-panel">
         <h2>Add / Edit Expense</h2>
+
         <form id="expense-form">
           <div class="form-grid">
             <input type="text" id="title" placeholder="Expense title" required />
@@ -48,13 +108,19 @@
             <button type="button" id="cancel-edit" class="secondary-btn">Cancel Edit</button>
           </div>
         </form>
-      </div>
+      </section>
+    </section>
 
-      <div class="panel">
-        <h2>Expenses</h2>
+    <!-- EXPENSES TAB -->
+    <section class="tab-content" id="expenses-tab">
+      <section class="panel expenses-panel">
+        <div class="panel-head">
+          <h2>Expenses</h2>
+        </div>
 
         <div class="controls">
           <input type="text" id="search-input" placeholder="Search expenses..." />
+
           <select id="sort-select">
             <option value="newest">Sort: Newest</option>
             <option value="oldest">Sort: Oldest</option>
@@ -64,10 +130,12 @@
         </div>
 
         <div id="expense-list" class="expense-list"></div>
-      </div>
+      </section>
     </section>
+
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
